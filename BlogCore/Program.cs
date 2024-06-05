@@ -1,3 +1,5 @@
+using BlogCore.AccesoDatos.Data.Repository;
+using BlogCore.AccesoDatos.Data.Repository.IRepository;
 using BlogCore.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -14,7 +16,11 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+//Agregar contenedor del trabajo al contenedor  IoC de inyecci[on de dependencias
+builder.Services.AddScoped<IContenedorTrabajo, ContenedorTrabajo>();
+
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
