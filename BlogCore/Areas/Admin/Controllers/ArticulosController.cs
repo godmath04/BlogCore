@@ -26,15 +26,13 @@ namespace BlogCore.Areas.Admin.Controllers
         }
         [HttpGet]
         public IActionResult Create()
-           {
-            ArticuloVM artiVm = new ArticuloVM();
+        {
+            ArticuloVM artiVm = new ArticuloVM()
             {
-                Articulo = new BlogCore.Models.Articulo();
-
-                ListaCategorias = _contenedorTrabajo.Categoria.GetListaCategorias();
-
-            }
-            return View();
+                Articulo = new BlogCore.Models.Articulo(),
+                ListaCategorias = _contenedorTrabajo.Categoria.GetListaCategorias()
+            };
+        return View(artiVm);
         }
 
         #region LLamadas a la API
