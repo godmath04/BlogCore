@@ -8,7 +8,7 @@
 <h3 class="text-center">Editar una nueva categoria</h3>
 <form method="POST" asp-action="Edit">
     <div class="row px-2 offset-1 bordfer">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="col-10 offser-1 mt-4">
             <div class="form-group row">
@@ -46,3 +46,9 @@
         </div>
     </div>
 </form>
+
+@* Validacion para el cliente *@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+}
